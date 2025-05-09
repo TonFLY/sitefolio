@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Dicas práticas de SQL para Analistas de Dados | Seu Nome</title>
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Prism.js para syntax highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+</head>
+<body>
+
+  <nav>
+    <ul class="menu">
+      <li><a href="../index.html">Início</a></li>
+      <li><a href="../projetos.html">Projetos</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../agora.html">Agora</a></li>²
+      <li><a href="../contato.html">Contato</a></li>
+      <!-- <li><a href="../curriculo.html">Currículo</a></li> -->
+    </ul>
+  </nav>
+
+  <section class="intro">
+  <h1>Dica de SQL: Por que evitar <code>SELECT *</code>?</h1>
+  <small>Publicado em 09 de maio de 2025</small>
+
+  <p>
+    Se você está começando a escrever consultas SQL, é comum usar <code>SELECT *</code> para buscar todos os dados de uma tabela. Mas essa prática, embora pareça conveniente, pode trazer diversos problemas.
+  </p>
+
+  <h2>🧠 O que o <code>SELECT *</code> faz?</h2>
+  <p>
+    Ele traz <strong>todas as colunas</strong> de uma tabela — até mesmo aquelas que você não vai usar. Isso pode:
+  </p>
+  <ul>
+    <li>⚠️ Deixar a consulta mais lenta</li>
+    <li>📉 Prejudicar a legibilidade do código</li>
+    <li>🔐 Expor dados sensíveis por engano</li>
+  </ul>
+
+  <h2>✅ Como fazer melhor?</h2>
+  <p>Especifique apenas as colunas que você realmente precisa:</p>
+
+  <pre><code class="language-sql">-- Evite
+SELECT * FROM clientes;
+
+-- Prefira
+SELECT nome, email FROM clientes;</code></pre>
+
+  <h2>⚙️ Por que isso melhora a performance?</h2>
+  <p>
+    Bancos de dados usam estruturas chamadas <strong>índices</strong> para encontrar dados rapidamente. Quando você pede tudo (<code>*</code>), o banco pode ignorar esses índices e ler muito mais dados do que o necessário. Isso impacta:
+  </p>
+  <ul>
+    <li>🚫 O tempo de resposta da consulta</li>
+    <li>🚫 O uso de memória</li>
+    <li>🚫 A reutilização de cache</li>
+  </ul>
+
+  <h2>🍽️ Uma analogia rápida</h2>
+  <p>
+    Usar <code>SELECT *</code> é como ir num buffet e encher o prato com tudo, até o que você não vai comer. Já escolher colunas específicas é como pedir à la carte: só vem o que você quer, do jeito certo, e sem desperdício.
+  </p>
+
+  <hr>
+  <p><strong>Gostou da dica?</strong> Continue acompanhando o blog para mais conteúdos práticos como este!</p>
+  <p><a href="../blog.html">← Voltar para o blog</a></p>
+</section>
+
+<link rel="stylesheet" href="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-button.css">
+<a id="robbu-whatsapp-button" target="_blank" href="https://api.whatsapp.com/send?phone=61992977628&text=Ol%C3%A1%20Wellington,">
+  <div class="rwb-tooltip">Fale comigo</div>
+  <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
+</a>
+</body>
+</html>
